@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ReorderController!{% endblock %}
+
+{% block body %}
+    <div class="mx-2">
+        {{ parent() }} {# Navbar #}
+        <div id="grid-container">
+            <grid-gesture></grid-gesture>
+        </div>
+    </div>
+{% endblock %}

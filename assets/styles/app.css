@@ -1,0 +1,70 @@
+body {
+    background-color: #fff;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.word-space {
+    word-spacing: 0.5rem;
+}
+
+.scrollbar-off {
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+.scrollbar-off::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+}
+
+.v-enter-active,
+.v-leave-active {
+    transition: opacity 0.2s ease-in-out;
+}
+
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
+}
+
+.scrollbar-off::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in WebKit browsers */
+}
+.scrollbar-off {
+    -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+
+#grid-gesture-container::-webkit-scrollbar {
+    display: none;
+}
+
+/*!* Track *!*/
+/*#grid-gesture-container::-webkit-scrollbar-track {*/
+/*    background: transparent;*/
+
+/*}*/
+
+/*!* Handle *!*/
+/*#grid-gesture-container::-webkit-scrollbar-thumb {*/
+/*    background-color: #191919;*/
+/*    width: 10px;*/
+/*    height: 10%;*/
+/*}*/
+
+/*!* Handle on hover *!*/
+/*#grid-gesture-container::-webkit-scrollbar-thumb:hover {*/
+/*    background: #555;*/
+/*}*/
+
+/*#grid-gesture-container::-webkit-scrollbar-track-piece:end {*/
+/*    background: transparent;*/
+/*}*/
+
+/*#grid-gesture-container::-webkit-scrollbar-track-piece:start {*/
+/*    background: transparent;*/
+/*}*/
+
+

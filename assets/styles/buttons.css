@@ -1,0 +1,10 @@
+.dark-btn {
+    padding: 0 20px;
+}
+
+.light-btn {
+    border: 1px solid black;
+    background-color: #ffffff;
+    padding: 0 20px;
+}
+

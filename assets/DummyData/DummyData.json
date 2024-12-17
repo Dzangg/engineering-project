@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "categoryName": "Greetings",
+    "gestures": [
+      {
+        "title": "Hello",
+        "tags": ["wave", "greeting", "hand"]
+      },
+      {
+        "title": "Goodbye",
+        "tags": ["farewell", "wave", "hand"]
+      },
+      {
+        "title": "Yoo",
+        "tags": ["farewell", "wave", "hand"]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "categoryName": "Emotions",
+    "gestures": [
+      {
+        "title": "Happy",
+        "tags": ["smile", "joy", "positive"]
+      },
+      {
+        "title": "Sad",
+        "tags": ["frown", "tears", "negative"]
+      },
+      {
+        "title": "Angry",
+        "tags": ["frown", "mad", "frustration"]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "categoryName": "Actions",
+    "gestures": [
+      {
+        "title": "Clap",
+        "tags": ["applause", "hands", "congratulations"]
+      },
+      {
+        "title": "Point",
+        "tags": ["indicate", "finger", "direction"]
+      },
+      {
+        "title": "Attack",
+        "tags": ["indicate", "finger", "direction"]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "categoryName": "Actions",
+    "gestures": [
+      {
+        "title": "Clap",
+        "tags": ["applause", "hands", "congratulations"]
+      },
+      {
+        "title": "Point",
+        "tags": ["indicate", "finger", "direction"]
+      },
+      {
+        "title": "Attack",
+        "tags": ["indicate", "finger", "direction"]
+      }
+    ]
+  }
+]

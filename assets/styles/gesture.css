@@ -1,0 +1,76 @@
+.small-box {
+    width: 100px;
+    height: 65px;
+    background-color: #939393;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+
+.sticky-box {
+    width: 80px;
+    height: 80px;
+    background-color: #62eaba;
+    bottom: 50px; /* Adjust distance from the bottom */
+    left: 320px;   /* Adjust distance from the left */
+    z-index: 9999;
+}
+
+.fixed-icon-container {
+    position: fixed;
+    bottom: 50px; /* Adjust distance from the bottom */
+    left: 320px;   /* Adjust distance from the left */
+    z-index: 9999;
+    width: 5rem; /* Match the font-size of the icon */
+    height: 5rem; /* Match the font-size of the icon */
+}
+
+.relative-container {
+    position: relative;
+}
+
+.remove-icon {
+    position: fixed;
+    left: 0;
+    top: 0px;
+}
+
+.circle-indicator {
+    width: 30px; /* Circle size */
+    top: 0;
+    right: 10px;
+    height: 30px; /* Circle size */
+    background-color: #212529; /* Circle color */
+    color: #ffffff; /* Text color inside the circle */
+    border-radius: 50%; /* Makes it a perfect circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px; /* Font size for the digit */
+    font-weight: bold;
+    z-index: 1; /* Ensures it stays on top */
+}
+
+.fixed-sign-icon {
+    font-size: 4rem;
+    top: 20px;
+}
+
+hr {
+    width: 100%;
+    background-color: black;
+}
+
+.horizontal-line-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+#grid-gesture-container {
+    height: 460px;
+    overflow: hidden;
+    /*background: #f3f3f3;*/
+}

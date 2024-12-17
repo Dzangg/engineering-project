@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+    <div id="app">
+        <div class="mx-2">
+            {{ parent() }}
+            <div class="container-fluid my-3 text-justify">
+                <p class="word-space fw-normal">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean faucibus
+                    libero nec metus vulputate dictum ut a ex.
+                </p>
+                <div id="category-container">
+                    <category></category>
+                    <div class="fixed-icon-container">
+                        <a href="{{ path('app_reorder') }}" style="color: unset">
+                            <div id="gesture-counter-icon" class="relative-container">
+                                <div  class="circle-indicator position-absolute"><span>12</span></div>
+                                <i class="fa-solid fa-hands-asl-interpreting position-absolute fixed-sign-icon"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

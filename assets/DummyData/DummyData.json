@@ -55,7 +55,61 @@
   },
   {
     "id": 4,
-    "categoryName": "Actions",
+    "categoryName": "Actions2",
+    "gestures": [
+      {
+        "title": "Clap",
+        "tags": ["applause", "hands", "congratulations"]
+      },
+      {
+        "title": "Point",
+        "tags": ["indicate", "finger", "direction"]
+      },
+      {
+        "title": "Attack",
+        "tags": ["indicate", "finger", "direction"]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "categoryName": "Actions3",
+    "gestures": [
+      {
+        "title": "Clap",
+        "tags": ["applause", "hands", "congratulations"]
+      },
+      {
+        "title": "Point",
+        "tags": ["indicate", "finger", "direction"]
+      },
+      {
+        "title": "Attack",
+        "tags": ["indicate", "finger", "direction"]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "categoryName": "Actions4",
+    "gestures": [
+      {
+        "title": "Clap",
+        "tags": ["applause", "hands", "congratulations"]
+      },
+      {
+        "title": "Point",
+        "tags": ["indicate", "finger", "direction"]
+      },
+      {
+        "title": "Attack",
+        "tags": ["indicate", "finger", "direction"]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "categoryName": "Actions5",
     "gestures": [
       {
         "title": "Clap",

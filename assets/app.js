@@ -12,5 +12,6 @@ import './styles/animations.css';
 import './styles/gesture.css';
 import './styles/buttons.css';
 import './styles/poppins.css';
+import './styles/wheel.css';
 
 import './vueloader.js';

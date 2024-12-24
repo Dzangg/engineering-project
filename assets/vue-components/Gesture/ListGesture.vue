@@ -34,14 +34,9 @@ export default {
         behavior: "smooth",
       });
     },
-    // handleArrowPosition(offset) {
-    //   this.arrowOffset = offset;
-    // },
     toggleAnimation(e) {
-      const counter = document.querySelector('#gesture-counter-icon')
+      const counter = document.querySelector('#gesture-sequence-counter')
 
-      // this.$refs.gestureContainer.classList.toggle('gesture-animation');
-      // console.log(this.$refs.gestureContainer.classList)
       const gesture = e.target;
 
       // Remove the animation class if it already exists
@@ -54,6 +49,21 @@ export default {
         counter.classList.add('pulse-effect');
       }, 1);
     },
+    addGesture(e) {
+      const counter = document.querySelector('#gesture-sequence-counter')
+
+      const gesture = e.target;
+
+      // Remove the animation class if it already exists
+      gesture.classList.remove('pulse-effect');
+      counter.classList.remove('pulse-effect');
+
+      // Use a timeout to allow re-adding the animation class
+      setTimeout(() => {
+        gesture.classList.add('pulse-effect');
+        counter.classList.add('pulse-effect');
+      }, 1);
+    }
   },
   mounted() {
     this.changeArrowsVisibility();
@@ -67,7 +77,7 @@ export default {
 </script>
 
 <template>
-  <div class="my-2 position-relative">
+  <div class="my-4 position-relative" style="width: 98%">
     <!-- Left arrow -->
     <Transition>
       <div
@@ -88,10 +98,18 @@ export default {
         style="overflow-x: auto; scroll-behavior: smooth;"
     >
       <div v-for="(gesture, index) in gestures" class="col">
-        <div class="card d-inline-block mt-2" style="width: 12rem; height: 12rem;" ref="imageContainer" @click="toggleAnimation">
+        <div class="card d-inline-block" style="width: 8rem; height: 8rem;" ref="imageContainer" @click="toggleAnimation">
           <gesture :gesture="gesture"></gesture>
+<!--          <div class="position-absolute top-50 start-50 translate-middle">-->
+<!--            <i class="fa-solid fa-play fa-xl" style="color: #ededed;"></i>-->
+<!--          </div>-->
         </div>
-        <p class="text-center my-1">{{ gesture.title }}</p>
+        <div class="text-center d-flex flex-column align-items-center">
+          <p class="my-1">{{ gesture.title }}</p>
+          <div class="add-icon d-flex justify-content-center align-items-center" @click="addGesture">
+            <i class="fa-solid fa-plus fa-lg"></i>
+          </div>
+        </div>
       </div>
     </div>
 

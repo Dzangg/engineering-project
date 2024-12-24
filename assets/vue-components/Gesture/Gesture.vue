@@ -10,6 +10,7 @@ export default {
 </script>
 
 <template>
-  <div ref="gestureContainer" class="rounded">
+  <div class="rounded">
+
   </div>
 </template>

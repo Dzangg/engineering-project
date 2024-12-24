@@ -1,7 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Translator{% endblock %}
+{% block title %}Translate gestures{% endblock %}
 
 {% block body %}
-
+    {{ parent() }}
+    <div id="translator-container">
+        <gesture-translator></gesture-translator>
+    </div>
 {% endblock %}

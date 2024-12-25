@@ -1,12 +1,27 @@
 <script>
 import Category from "./Gesture/Category.vue";
 import GestureSequence from "./Gesture/GestureSequence.vue";
+import Navbar from "./Semantic/Navbar.vue";
+
 export default {
   name: "Dashboard",
-  components: {Category, GestureSequence},
+  components: {Category, GestureSequence, Navbar},
+  provide() {
+    return {
+      chosenGestures: this.chosenGestures,
+    }
+  },
   data() {
     return {
       view: 1,
+      chosenGestures: [],
+    }
+  },
+  methods: {
+    handleChangeView({ view }) {
+      console.log(this.chosenGestures)
+      this.view = view;
+      // this.chosenGestures = chosenGestures;
     }
   },
   computed: {
@@ -19,13 +34,28 @@ export default {
 
 <template>
 
-<div v-if="isCategory">
-  <category></category>
-</div>
-<div v-else>
-  <gesture-sequence></gesture-sequence>
-</div>
+  <div class="container-fluid text-justify p-0">
+    <div v-if="isCategory">
+      <div class="bg-dark sticky-top">
+        <navbar :menu="true"></navbar>
+      </div>
+      <div class="mx-4">
+        <p class="word-space fw-normal pt-4">
+          To translate PJM to text start adding gestures to queue.
+        </p>
+        <category @change-view="handleChangeView"></category>
+      </div>
+    </div>
 
+    <div v-else class="d-flex flex-column vh-100">
+      <div class="bg-dark">
+        <navbar :back-button="true"></navbar>
+      </div>
+      <div class="d-flex flex-column flex-grow-1">
+        <gesture-sequence @change-view="handleChangeView"></gesture-sequence>
+      </div>
+    </div>
+  </div>
 
 </template>
 

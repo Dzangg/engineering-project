@@ -4,18 +4,29 @@
 
 {% block body %}
     <div id="app">
-{#        <dashboard></dashboard>#}
         {{ parent() }}
-        <div id="navbar-container" class="bg-dark sticky-top">
-            <navbar :menu="true"></navbar>
-        </div>
-        <div class="container-fluid text-justify">
-            <p class="word-space fw-normal pt-4">
-                To translate PJM to text start adding gestures to queue.
-            </p>
-            <div id="category-container">
-                <category></category>
-            </div>
-        </div>
+        <dashboard></dashboard>
+
+{#        <div class="container-fluid text-justify">#}
+{#            <p class="word-space fw-normal pt-4">#}
+{#                To translate PJM to text start adding gestures to queue.#}
+{#            </p>#}
+{#            <div id="category-container">#}
+{#                <category></category>#}
+{#            </div>#}
+{#        </div>#}
+
+{#        {{ parent() }}#}
+{#        <div id="navbar-container" class="bg-dark sticky-top">#}
+{#            <navbar :menu="true"></navbar>#}
+{#        </div>#}
+{#        <div class="container-fluid text-justify">#}
+{#            <p class="word-space fw-normal pt-4">#}
+{#                To translate PJM to text start adding gestures to queue.#}
+{#            </p>#}
+{#            <div id="category-container">#}
+{#                <category></category>#}
+{#            </div>#}
+{#        </div>#}
     </div>
 {% endblock %}

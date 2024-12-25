@@ -3,7 +3,9 @@ import Gesture from "./Gesture.vue";
 
 export default {
   name: "ListGesture",
-  components: {Gesture},
+  components: {
+    Gesture
+  },
   props: {
     gestures: {
       type: Array,
@@ -35,33 +37,28 @@ export default {
       });
     },
     toggleAnimation(e) {
-      const counter = document.querySelector('#gesture-sequence-counter')
-
       const gesture = e.target;
 
       // Remove the animation class if it already exists
       gesture.classList.remove('pulse-effect');
-      counter.classList.remove('pulse-effect');
 
       // Use a timeout to allow re-adding the animation class
       setTimeout(() => {
         gesture.classList.add('pulse-effect');
-        counter.classList.add('pulse-effect');
       }, 1);
     },
-    addGesture(e) {
-      const counter = document.querySelector('#gesture-sequence-counter')
+    addGesture(e, index) {
+
+      this.$emit('add-gesture', this.gestures[index]);
 
       const gesture = e.target;
 
       // Remove the animation class if it already exists
       gesture.classList.remove('pulse-effect');
-      counter.classList.remove('pulse-effect');
 
       // Use a timeout to allow re-adding the animation class
       setTimeout(() => {
         gesture.classList.add('pulse-effect');
-        counter.classList.add('pulse-effect');
       }, 1);
     }
   },
@@ -82,7 +79,7 @@ export default {
     <Transition>
       <div
           v-if="showLeftArrow"
-          class="position-absolute start-0 translate-middle-y text-black"
+          class="position-absolute start-0 translate-middle-y text-black pt-2"
           :style="{zIndex: 1, cursor: 'pointer', top: `${arrowOffset}px`}"
           @click="scrollToStart"
       >
@@ -97,14 +94,14 @@ export default {
         ref="scrollContainer"
         style="overflow-x: auto; scroll-behavior: smooth;"
     >
-      <div v-for="(gesture, index) in gestures" class="col">
+      <div v-for="(gesture, index) in gestures" class="col pt-2">
         <div class="card d-inline-block" style="width: 8rem; height: 8rem;" ref="imageContainer" @click="toggleAnimation">
           <gesture :gesture="gesture"></gesture>
         </div>
         <div class="text-center d-flex flex-column align-items-center">
           <p class="my-1">{{ gesture.label }}</p>
-          <div class="add-icon d-flex justify-content-center align-items-center" @click="addGesture">
-            <i class="fa-solid fa-plus fa-lg" style="color: #0000"></i>
+          <div class="add-icon d-flex justify-content-center align-items-center" @click="addGesture($event, index)">
+            <i class="fa-solid fa-plus fa-lg"></i>
           </div>
         </div>
       </div>
@@ -114,7 +111,7 @@ export default {
     <Transition>
       <div
           v-if="showRightArrow"
-          class="position-absolute end-0 translate-middle-y text-black"
+          class="position-absolute end-0 translate-middle-y text-black pt-2"
           :style="{zIndex: 1, cursor: 'pointer', top: `${arrowOffset}px`}"
           @click="scrollToEnd"
       >

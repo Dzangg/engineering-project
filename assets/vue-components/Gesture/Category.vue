@@ -7,18 +7,24 @@ export default {
   components: {
     ListGesture
   },
+  inject: ['chosenGestures'],
   data() {
     return {
       categories: DummyData,
-      chosenGestures: [1],
     }
   },
   methods: {
+    changeView() {
+      this.$emit('change-view', {view: 2});
+    },
     addChosenGesture(gesture) {
-      this.chosenGestures.push(gesture)
+      this.chosenGestures.push(gesture);
     },
     removeLastGesture() {
-      this.chosenGestures.pop()
+      this.chosenGestures.pop();
+    },
+    clearGestures() {
+      this.chosenGestures.length = 0;
     }
   },
   computed: {
@@ -33,12 +39,12 @@ export default {
 </script>
 
 <template>
-
+  <i class="fa-solid fa-trash" style="color: #0000"></i>
 <div class="mx-1">
   <div v-for="(category, index) in categories" class="row" :id="'category-' + category.categoryName.toLowerCase()">
     <div class="col m-0">
       <h3 class="my-2">{{category.categoryName + ' (' + category.gestures.length + ') '}}</h3>
-      <ListGesture :gestures="category.gestures"/>
+      <ListGesture @add-gesture="addChosenGesture" :gestures="category.gestures"/>
     </div>
   </div>
 </div>
@@ -46,16 +52,16 @@ export default {
     <div class="d-flex flex-column justify-content-center align-items-center h-100 gap-4">
 <!--  Add <Transition> here -->
       <div class="d-flex justify-content-center align-items-center gap-4">
-        <button type="button" class="btn btn-dark" :class="{ hidden: chosenGesturesEmpty}">
+        <button type="button" class="btn btn-dark" :class="{ hidden: chosenGesturesEmpty}" @click="clearGestures">
           Clear <i class="fa-solid fa-trash"></i>
         </button>
-        <button type="button" class="btn btn-dark" :class="{ hidden: chosenGesturesEmpty}">
+        <button type="button" class="btn btn-dark" :class="{ hidden: chosenGesturesEmpty}" @click="removeLastGesture">
           Undo <i class="fa-solid fa-rotate-left"></i>
         </button>
       </div>
-      <a class="btn btn-lg btn-dark" :class="{disabled: chosenGesturesEmpty}" href="/reorder">
+      <button type="button" class="btn btn-lg btn-dark position-absolute" style="bottom: 38px" :class="{disabled: chosenGesturesEmpty}" @click="changeView">
         <span>Create Sequence ({{chosenGesturesLength}})</span>
-      </a>
+      </button>
     </div>
   </div>
 </template>

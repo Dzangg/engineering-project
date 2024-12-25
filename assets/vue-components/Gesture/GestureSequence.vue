@@ -1,15 +1,19 @@
 <script>
-import ChosenGestures from "../../DummyData/ChosenGestures.json"
+// import ChosenGestures from "../../DummyData/ChosenGestures.json"
 export default {
   name: "Grid",
+  inject: ['chosenGestures'],
   data() {
     return {
-      chosenGestures: ChosenGestures,
+      // chosenGestures: [],
       isTranslated: false,
       editMode: false,
     }
   },
   methods: {
+    changeView() {
+      this.$emit('change-view', {view: 1});
+    },
     handleEditMode() {
       this.editMode = !this.editMode;
     },
@@ -65,9 +69,11 @@ export default {
 
     <div class="d-flex flex-column justify-content-evenly align-items-center gap-3 flex-grow-1">
       <div class="d-flex flex-column justify-content-center align-items-center gap-3">
-        <button class="btn btn-dark p-2" @click="handleEditMode">
-          <span v-if="!editMode">Reorder</span>
-          <span v-else>Done</span>
+        <button v-if="!editMode" class="btn btn-dark p-2" @click="handleEditMode">
+          Reorder
+        </button>
+        <button v-else class="btn btn-dark p-2" @click="handleEditMode">
+          Done
         </button>
         <p class="m-0" :class="{ 'text-secondary': editMode }">
           Or
@@ -81,9 +87,9 @@ export default {
         <a class="btn btn-lg btn-dark" :class="{ disabled: editMode || gesturesEmpty }" data-bs-toggle="offcanvas" href="#offcanvasTranslator" aria-controls="offcanvasTranslator">
           Open translator <i class="fa-solid fa-hands-asl-interpreting"></i>
         </a>
-        <a href="/" class="btn btn-dark">
+        <button type="button" class="btn btn-dark" @click="changeView">
           <i class="fa-solid fa-lg fa-arrow-left"></i> Back
-        </a>
+        </button>
       </div>
     </div>
   </div>

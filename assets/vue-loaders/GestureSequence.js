@@ -1,14 +1,14 @@
 import {createApp} from 'vue';
-import GestureTranslator from '../vue-components/Translator/GestureTranslator.vue';
+import GestureSequence from '../vue-components/Gesture/GestureSequence.vue';
 
-const selector = '#translator-container';
+const selector = '#gesture-sequence-container';
 document.addEventListener('DOMContentLoaded', () => {
     const appElement = document.querySelector(selector);
 
     if (appElement) {
         const app = createApp({
             components: {
-                GestureTranslator
+                GestureSequence
             },
         });
         app.mount(appElement);

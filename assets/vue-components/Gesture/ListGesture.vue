@@ -100,14 +100,11 @@ export default {
       <div v-for="(gesture, index) in gestures" class="col">
         <div class="card d-inline-block" style="width: 8rem; height: 8rem;" ref="imageContainer" @click="toggleAnimation">
           <gesture :gesture="gesture"></gesture>
-<!--          <div class="position-absolute top-50 start-50 translate-middle">-->
-<!--            <i class="fa-solid fa-play fa-xl" style="color: #ededed;"></i>-->
-<!--          </div>-->
         </div>
         <div class="text-center d-flex flex-column align-items-center">
-          <p class="my-1">{{ gesture.title }}</p>
+          <p class="my-1">{{ gesture.label }}</p>
           <div class="add-icon d-flex justify-content-center align-items-center" @click="addGesture">
-            <i class="fa-solid fa-plus fa-lg"></i>
+            <i class="fa-solid fa-plus fa-lg" style="color: #0000"></i>
           </div>
         </div>
       </div>

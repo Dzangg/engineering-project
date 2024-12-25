@@ -3,10 +3,13 @@
 {% block title %}Reorder gestures{% endblock %}
 
 {% block body %}
-    <div>
-        {{ parent() }} {# Navbar #}
-        <div id="grid-container" style="height: 100vh">
-            <grid-gesture></grid-gesture>
+    {{ parent() }}
+    <div class="d-flex flex-column vh-100">
+        <div id="navbar-container" class="bg-dark">
+            <navbar :back-button="true"></navbar>
+        </div>
+        <div id="gesture-sequence-container" class="d-flex flex-column flex-grow-1">
+            <gesture-sequence></gesture-sequence>
         </div>
     </div>
 {% endblock %}

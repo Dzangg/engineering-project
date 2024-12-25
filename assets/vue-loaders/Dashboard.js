@@ -1,14 +1,14 @@
 import {createApp} from 'vue';
-import GridGesture from '../vue-components/Gesture/GridGesture.vue';
+import Dashboard from '../vue-components/Dashboard.vue';
 
-const selector = '#grid-container';
+const selector = '#app';
 document.addEventListener('DOMContentLoaded', () => {
     const appElement = document.querySelector(selector);
 
     if (appElement) {
         const app = createApp({
             components: {
-                GridGesture
+                Dashboard
             },
         });
         app.mount(appElement);

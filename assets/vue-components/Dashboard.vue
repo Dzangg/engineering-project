@@ -21,7 +21,6 @@ export default {
     handleChangeView({ view }) {
       console.log(this.chosenGestures)
       this.view = view;
-      // this.chosenGestures = chosenGestures;
     }
   },
   computed: {
@@ -40,8 +39,8 @@ export default {
         <navbar :menu="true"></navbar>
       </div>
       <div class="mx-4">
-        <p class="word-space fw-normal pt-4">
-          To translate PJM to text start adding gestures to queue.
+        <p class="word-space fw-normal pt-3 m-0">
+          To translate PJM to text start adding gestures.
         </p>
         <category @change-view="handleChangeView"></category>
       </div>

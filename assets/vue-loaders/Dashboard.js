@@ -1,7 +1,7 @@
 import {createApp} from 'vue';
 import Dashboard from '../vue-components/Dashboard.vue';
 
-const selector = '#app';
+const selector = '#main-app';
 document.addEventListener('DOMContentLoaded', () => {
     const appElement = document.querySelector(selector);
 

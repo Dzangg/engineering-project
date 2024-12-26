@@ -1,13 +1,12 @@
 <script>
-// import ChosenGestures from "../../DummyData/ChosenGestures.json"
 export default {
   name: "Grid",
   inject: ['chosenGestures'],
   data() {
     return {
-      // chosenGestures: [],
       isTranslated: false,
       editMode: false,
+      gestureNames: [],
     }
   },
   methods: {
@@ -16,6 +15,9 @@ export default {
     },
     handleEditMode() {
       this.editMode = !this.editMode;
+    },
+    removeGesture(index) {
+      this.chosenGestures.splice(index, 1);
     },
   },
   computed: {
@@ -26,10 +28,10 @@ export default {
       return this.gestureCount <= 0;
     },
     getGestureValues() {
-      const gestureNames = [];
+      this.gestureNames = [];
 
       for (const gesture of this.chosenGestures) {
-        gestureNames.push(gesture.label);
+        this.gestureNames.push(gesture.label);
       }
     }
   }
@@ -42,7 +44,7 @@ export default {
       <h2 class="my-4 poppins-semibold">Create gesture sequence</h2>
     </div>
 
-    <div id="grid-gesture-container" class="row row-cols-3 row-gap-2 py-3 overflow-y-scroll">
+    <div id="grid-gesture-container" class="row row-cols-3 py-3">
       <div v-if="gesturesEmpty" class="w-100 text-center text-danger">
         <h3>No gestures selected</h3>
       </div>
@@ -50,9 +52,11 @@ export default {
            style="height: 110px"
            v-for="(chosenGesture, index) in chosenGestures">
         <div class="relative-container text-wrap d-flex flex-column align-items-center justify-content-center">
-          <i class="fa-solid fa-circle-minus fa-xl position-absolute remove-icon" v-if="editMode"></i>
+          <div v-if="editMode" @click="removeGesture(index)">
+            <i class="fa-solid fa-circle-minus fa-xl position-absolute top-0 start-0 translate-middle-y remove-icon"></i>
+          </div>
           <div class="card image-box" style="z-index: -1">
-<!--      image      -->
+<!--      video      -->
           </div>
           <div style="height: 20px; width: 100%" class="text-center text-wrap text-break lh-sm fw-normal poppins-light my-2">
             <p>{{chosenGesture.label}}</p>
@@ -69,11 +73,8 @@ export default {
 
     <div class="d-flex flex-column justify-content-evenly align-items-center gap-3 flex-grow-1">
       <div class="d-flex flex-column justify-content-center align-items-center gap-3">
-        <button v-if="!editMode" class="btn btn-dark p-2" @click="handleEditMode">
-          Reorder
-        </button>
-        <button v-else class="btn btn-dark p-2" @click="handleEditMode">
-          Done
+        <button class="btn btn-dark p-2" @click="handleEditMode">
+          {{ !editMode ? 'Reorder' : 'Done' }}
         </button>
         <p class="m-0" :class="{ 'text-secondary': editMode }">
           Or
@@ -84,7 +85,7 @@ export default {
       </div>
 
       <div class="d-flex flex-column justify-content-between align-items-center gap-3">
-        <a class="btn btn-lg btn-dark" :class="{ disabled: editMode || gesturesEmpty }" data-bs-toggle="offcanvas" href="#offcanvasTranslator" aria-controls="offcanvasTranslator">
+        <a class="btn btn-lg btn-dark" :class="{ disabled: editMode || gesturesEmpty }" data-bs-toggle="offcanvas" href="#offcanvasTranslator" aria-controls="offcanvasTranslator" @click="getGestureValues">
           Open translator <i class="fa-solid fa-hands-asl-interpreting"></i>
         </a>
         <button type="button" class="btn btn-dark" @click="changeView">
@@ -132,7 +133,11 @@ export default {
         </a>
         <div class="text-center">
           <h4>Before translation</h4>
-          <p v-if="!this.gesturesEmpty" ref="gestureParagraph" class="text-break mb-0" style="overflow-wrap: break-word; white-space: normal;"></p>
+          <p v-if="!this.gesturesEmpty" ref="gestureParagraph" class="text-break mb-0" style="overflow-wrap: break-word; white-space: normal;">
+            <span v-for="(label, index) in gestureNames">
+              {{label + ', '}}
+            </span>
+          </p>
           <p v-else>No gestures selected</p>
           <h4 class="mt-4">After translation</h4>
         </div>

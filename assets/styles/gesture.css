@@ -45,8 +45,6 @@
 
 .remove-icon {
     position: fixed;
-    left: 0;
-    top: 0;
 }
 
 .circle-indicator {
@@ -76,6 +74,7 @@
     height: 40px;
     border-radius: 20px;
     border: 1px solid black;
+    background-color: white;
 }
 
 hr {
@@ -91,8 +90,8 @@ hr {
 }
 
 #grid-gesture-container {
-    height: 400px;
-    overflow: hidden;
+    max-height: 400px;
+    overflow-y: scroll;
 }
 
 #navigation-items-container {

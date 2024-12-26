@@ -42,11 +42,6 @@ export default {
     <nav class="navbar navbar-expand-sm navbar-dark p-0 mx-2">
       <div class="container-fluid" style="overflow: visible;">
         <a class="navbar-brand fw-bold fs-1 text-white" href="/">{{ title }}</a>
-<!--        <div v-if="backButton">-->
-<!--          <a href="/" class="mr-4 btn btn-light">-->
-<!--            <i class="fa-solid fa-lg fa-arrow-left"></i> Back-->
-<!--          </a>-->
-<!--        </div>-->
         <button v-if="menu" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigation-container" aria-controls="navigation-container" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>

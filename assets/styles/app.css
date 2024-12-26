@@ -12,10 +12,6 @@ body {
     word-spacing: 0.5rem;
 }
 
-#navbar-container {
-    /*background-color: #dadada;*/
-}
-
 .scrollbar-off {
     overflow-x: scroll; /* Enable horizontal scrolling */
     scrollbar-width: none; /* For Firefox */
@@ -36,19 +32,6 @@ body {
     opacity: 0;
 }
 
-.scrollbar-off::-webkit-scrollbar {
-    display: none; /* Hide scrollbar in WebKit browsers */
-}
-.scrollbar-off {
-    -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
-    scrollbar-width: none; /* Hide scrollbar in Firefox */
-}
-
-#grid-gesture-container::-webkit-scrollbar {
-    display: none;
-}
-
 .hidden {
     visibility: hidden;
-    /*display: none;*/
 }

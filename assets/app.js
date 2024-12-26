@@ -12,10 +12,8 @@ import './styles/animations.css';
 import './styles/gesture.css';
 import './styles/buttons.css';
 import './styles/poppins.css';
-import './styles/wheel.css';
 
 import './vueloader.js';
-
 
 import '@fortawesome/fontawesome-free/css/all.css';
 import '@fortawesome/fontawesome-free/js/all.js';

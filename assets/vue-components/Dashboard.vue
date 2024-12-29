@@ -19,9 +19,11 @@ export default {
   },
   methods: {
     handleChangeView({ view }) {
-      console.log(this.chosenGestures)
       this.view = view;
-    }
+    },
+    updateChosenGestures(newGestures) {
+      this.chosenGestures = [...newGestures];
+    },
   },
   computed: {
     isCategory() {
@@ -42,7 +44,7 @@ export default {
         <p class="word-space fw-normal pt-3 m-0">
           To translate PJM to text start adding gestures.
         </p>
-        <category @change-view="handleChangeView"></category>
+        <category @change-view="handleChangeView" @update-chosenGestures="updateChosenGestures"></category>
       </div>
     </div>
 

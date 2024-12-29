@@ -1,13 +1,27 @@
 <script>
+import draggable from "vuedraggable";
+
 export default {
   name: "Grid",
+  components: {draggable},
   inject: ['chosenGestures'],
   data() {
     return {
       isTranslated: false,
       editMode: false,
       gestureNames: [],
+      drag: false,
+      sequenceChosenGestures: [],
     }
+  },
+  watch: {
+    sequenceChosenGestures: {
+      handler(newVal) {
+        console.log('child: ')
+        console.log(newVal)
+        this.$emit('update-chosenGestures', newVal);
+      },
+    },
   },
   methods: {
     changeView() {
@@ -17,12 +31,12 @@ export default {
       this.editMode = !this.editMode;
     },
     removeGesture(index) {
-      this.chosenGestures.splice(index, 1);
+      this.sequenceChosenGestures.splice(index, 1);
     },
   },
   computed: {
     gestureCount() {
-      return this.chosenGestures.length;
+      return this.sequenceChosenGestures.length;
     },
     gesturesEmpty() {
       return this.gestureCount <= 0;
@@ -30,43 +44,55 @@ export default {
     getGestureValues() {
       this.gestureNames = [];
 
-      for (const gesture of this.chosenGestures) {
+      for (const gesture of this.sequenceChosenGestures) {
         this.gestureNames.push(gesture.label);
       }
     }
+  },
+  mounted() {
+    this.sequenceChosenGestures = [ ...this.chosenGestures ]
+
   }
 }
 </script>
 
 <template>
-  <div class="container">
+  <div class="container" style="min-height: 465px">
     <div class="title text-center">
       <h2 class="my-4 poppins-semibold">Create gesture sequence</h2>
     </div>
 
-    <div id="grid-gesture-container" class="row row-cols-3 py-3">
+    <div id="grid-gesture-container" class="row py-3">
       <div v-if="gesturesEmpty" class="w-100 text-center text-danger">
         <h3>No gestures selected</h3>
       </div>
-      <div v-else class="col mb-2"
-           style="height: 110px"
-           v-for="(chosenGesture, index) in chosenGestures">
-        <div class="relative-container text-wrap d-flex flex-column align-items-center justify-content-center">
-          <div v-if="editMode" @click="removeGesture(index)">
-            <i class="fa-solid fa-circle-minus fa-xl position-absolute top-0 start-0 translate-middle-y remove-icon"></i>
-          </div>
-          <div class="card image-box" style="z-index: -1">
-<!--      video      -->
-          </div>
-          <div style="height: 20px; width: 100%" class="text-center text-wrap text-break lh-sm fw-normal poppins-light my-2">
-            <p>{{chosenGesture.label}}</p>
-          </div>
-        </div>
-      </div>
+        <draggable
+            v-model="sequenceChosenGestures"
+            @start="drag=true"
+            @end="drag=false"
+            item-key="id"
+            class="d-flex flex-row flex-wrap row-cols-3"
+        >
+          <template #item="{element, index}">
+            <div class="col mb-2" style="height: 110px">
+              <div class="relative-container text-wrap d-flex flex-column align-items-center justify-content-center">
+                <div v-if="editMode" @click="removeGesture(index)">
+                  <i class="fa-solid fa-circle-minus fa-xl position-absolute top-0 start-0 translate-middle-y remove-icon"></i>
+                </div>
+                <div class="card image-box" style="z-index: -1">
+      <!--      video      -->
+                </div>
+                <div style="height: 20px; width: 100%" class="text-center text-wrap text-break lh-sm fw-normal poppins-light my-2">
+                  <p>{{element.label}}</p>
+                </div>
+              </div>
+            </div>
+          </template>
+        </draggable>
     </div>
   </div>
 
-  <div class="d-flex flex-column flex-grow-1">
+  <div class="d-flex flex-column flex-grow-1" style="max-height: 330px">
     <div class="horizontal-line-container">
       <hr>
     </div>

@@ -4,14 +4,17 @@
     "categoryName": "Greetings",
     "gestures": [
       {
+        "gestureId": 1,
         "label": "Hello",
         "tags": ["wave", "greeting", "hand"]
       },
       {
+        "gestureId": 2,
         "label": "Goodbye",
         "tags": ["farewell", "wave", "hand"]
       },
       {
+        "gestureId": 3,
         "label": "Yoo",
         "tags": ["farewell", "wave", "hand"]
       }
@@ -22,14 +25,17 @@
     "categoryName": "Emotions",
     "gestures": [
       {
+        "gestureId": 1,
         "label": "Happy",
         "tags": ["smile", "joy", "positive"]
       },
       {
+        "gestureId": 2,
         "label": "Sad",
         "tags": ["frown", "tears", "negative"]
       },
       {
+        "gestureId": 3,
         "label": "Angry",
         "tags": ["frown", "mad", "frustration"]
       }
@@ -40,14 +46,17 @@
     "categoryName": "Actions",
     "gestures": [
       {
+        "gestureId": 1,
         "label": "Clap",
         "tags": ["applause", "hands", "congratulations"]
       },
       {
+        "gestureId": 2,
         "label": "Point",
         "tags": ["indicate", "finger", "direction"]
       },
       {
+        "gestureId": 3,
         "label": "Attack",
         "tags": ["indicate", "finger", "direction"]
       }
@@ -58,14 +67,17 @@
     "categoryName": "Actions2",
     "gestures": [
       {
+        "gestureId": 1,
         "label": "Clap",
         "tags": ["applause", "hands", "congratulations"]
       },
       {
+        "gestureId": 2,
         "label": "Point",
         "tags": ["indicate", "finger", "direction"]
       },
       {
+        "gestureId": 3,
         "label": "Attack",
         "tags": ["indicate", "finger", "direction"]
       }
@@ -76,14 +88,17 @@
     "categoryName": "Actions3",
     "gestures": [
       {
+        "gestureId": 1,
         "label": "Clap",
         "tags": ["applause", "hands", "congratulations"]
       },
       {
+        "gestureId": 2,
         "label": "Point",
         "tags": ["indicate", "finger", "direction"]
       },
       {
+        "gestureId": 3,
         "label": "Attack",
         "tags": ["indicate", "finger", "direction"]
       }
@@ -94,14 +109,17 @@
     "categoryName": "Actions4",
     "gestures": [
       {
+        "gestureId": 1,
         "label": "Clap",
         "tags": ["applause", "hands", "congratulations"]
       },
       {
+        "gestureId": 2,
         "label": "Point",
         "tags": ["indicate", "finger", "direction"]
       },
       {
+        "gestureId": 3,
         "label": "Attack",
         "tags": ["indicate", "finger", "direction"]
       }
@@ -112,14 +130,17 @@
     "categoryName": "Actions5",
     "gestures": [
       {
+        "gestureId": 1,
         "label": "Clap",
         "tags": ["applause", "hands", "congratulations"]
       },
       {
+        "gestureId": 2,
         "label": "Point",
         "tags": ["indicate", "finger", "direction"]
       },
       {
+        "gestureId": 3,
         "label": "Attack",
         "tags": ["indicate", "finger", "direction"]
       }

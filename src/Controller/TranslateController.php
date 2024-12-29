@@ -11,7 +11,7 @@ class TranslateController extends AbstractController
     #[Route('/translate', name: 'app_translate')]
     public function index(): Response
     {
-        return $this->render('translate/translate.html.twig', [
+        return $this->render('test.html.twig', [
             'controller_name' => 'TranslateController',
         ]);
     }

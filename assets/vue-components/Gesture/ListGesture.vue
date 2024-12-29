@@ -92,7 +92,7 @@ export default {
         id="list-gesture-container"
         class="row flex-nowrap scrollbar-off"
         ref="scrollContainer"
-        style="overflow-x: auto; scroll-behavior: smooth;"
+        style="overflow-x: auto; scroll-behavior: smooth; width: fit-content"
     >
       <div v-for="(gesture, index) in gestures" class="col pt-2">
         <div class="card d-inline-block" style="width: 8rem; height: 8rem;" ref="imageContainer" @click="toggleAnimation">

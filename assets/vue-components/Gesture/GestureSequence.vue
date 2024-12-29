@@ -4,7 +4,9 @@ import draggable from "vuedraggable";
 export default {
   name: "Grid",
   components: {draggable},
-  inject: ['chosenGestures'],
+  props: {
+    chosenGestures: Array
+  },
   data() {
     return {
       isTranslated: false,
@@ -17,8 +19,6 @@ export default {
   watch: {
     sequenceChosenGestures: {
       handler(newVal) {
-        console.log('child: ')
-        console.log(newVal)
         this.$emit('update-chosenGestures', newVal);
       },
     },
@@ -51,7 +51,6 @@ export default {
   },
   mounted() {
     this.sequenceChosenGestures = [ ...this.chosenGestures ]
-
   }
 }
 </script>
@@ -72,6 +71,7 @@ export default {
             @end="drag=false"
             item-key="id"
             class="d-flex flex-row flex-wrap row-cols-3"
+            :disabled="!editMode"
         >
           <template #item="{element, index}">
             <div class="col mb-2" style="height: 110px">

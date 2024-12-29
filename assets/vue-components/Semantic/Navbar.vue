@@ -1,17 +1,16 @@
 <script>
 import Test from "../Gesture/Test.vue";
-import DummyData from "../../DummyData/DummyData.json"
 
 export default {
   components: {Test},
   props: {
     menu: false,
     backButton: false,
+    categories: Array,
   },
   data() {
     return {
       title: 'PJM Translator',
-      categories: DummyData,
       isCollapsed: false,
     }
   },
@@ -49,7 +48,7 @@ export default {
           <h4 class="text-white">Navigate to specific category <i class="fa-solid fa-arrow-down"></i></h4>
           <ul id="navigation-items-container" class="navbar-nav ms-auto my-3">
             <li class="nav-item mx-1" v-for="(category, index) in categories" :key="index">
-              <a class="nav-link text-light" @click="scrollToElement('category-' + category.categoryName.toLowerCase())">{{ (index+1) + '. ' + category.categoryName }}</a>
+              <a class="nav-link text-light" @click="scrollToElement('category-' + category.name)">{{ (index+1) + '. ' + category.name }}</a>
             </li>
           </ul>
           <div class="horizontal-line-container">

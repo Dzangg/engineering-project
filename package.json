@@ -25,6 +25,8 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^6.7.2",
+        "axios": "^1.7.9",
+        "openai": "^4.77.0",
         "vuedraggable": "^4.1.0"
     }
 }

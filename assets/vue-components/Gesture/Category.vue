@@ -1,39 +1,52 @@
 <script>
 import ListGesture from "./ListGesture.vue";
-import DummyData from "../../DummyData/DummyData.json"
 
 export default {
   name: "Category.vue",
   components: {
-    ListGesture
+    ListGesture,
   },
-  inject: ['chosenGestures'],
+  props: {
+    chosenGestures: Array,
+    categories: Array,
+  },
   data() {
     return {
-      categories: DummyData,
+      sequenceChosenGestures: [],
     }
+  },
+  watch: {
+    sequenceChosenGestures: {
+      handler(newVal) {
+        console.log('emitting update...')
+        this.$emit('update-chosenGestures', newVal);
+      },
+    },
   },
   methods: {
     changeView() {
       this.$emit('change-view', {view: 2});
     },
     addChosenGesture(gesture) {
-      this.chosenGestures.push(gesture);
+      this.sequenceChosenGestures.push(gesture);
     },
     removeLastGesture() {
-      this.chosenGestures.pop();
+      this.sequenceChosenGestures.pop();
     },
     clearGestures() {
-      this.chosenGestures.length = 0;
+      this.sequenceChosenGestures.length = 0;
     }
   },
   computed: {
     chosenGesturesLength() {
-      return this.chosenGestures.length;
+      return this.sequenceChosenGestures.length;
     },
     chosenGesturesEmpty() {
-      return this.chosenGestures.length <= 0;
+      return this.sequenceChosenGestures.length <= 0;
     }
+  },
+  mounted() {
+    this.sequenceChosenGestures = [...this.chosenGestures];
   }
 }
 </script>
@@ -41,25 +54,28 @@ export default {
 <template>
   <i class="fa-solid fa-trash" style="color: #0000"></i>
 <div class="mx-1">
-  <div v-for="(category, index) in categories" class="row" :id="'category-' + category.categoryName.toLowerCase()">
+  <div v-for="(category, index) in categories" class="row" :id="'category-' + category.name">
     <div class="col m-0">
-      <h3 class="my-0">{{category.categoryName + ' (' + category.gestures.length + ') '}}</h3>
+      <h3 class="my-0">{{category.name + ' (' + category.gestures.length + ') '}}</h3>
       <ListGesture @add-gesture="addChosenGesture" :gestures="category.gestures"/>
     </div>
   </div>
+  <div style="height: 200px">
+
+  </div>
 </div>
-  <div class="fixed-bottom" style="width: 100%; height: 150px;">
-    <div class="d-flex flex-column justify-content-center align-items-center h-100 gap-4">
+  <div class="fixed-bottom" style="width: 100%; height: 20%; pointer-events: auto;">
+    <div class="d-flex flex-column justify-content-center align-items-center h-100 gap-2">
 <!--  Add <Transition> here -->
       <div class="d-flex justify-content-center align-items-center gap-4">
-        <button type="button" class="btn btn-dark" :disabled="chosenGesturesEmpty"  @click="clearGestures">
+        <button type="button" class="btn btn-dark" style="pointer-events: auto;" :disabled="chosenGesturesEmpty"  @click="clearGestures">
           Clear <i class="fa-solid fa-trash"></i>
         </button>
-        <button type="button" class="btn btn-dark" :disabled="chosenGesturesEmpty"  @click="removeLastGesture">
+        <button type="button" class="btn btn-dark" style="pointer-events: auto;" :disabled="chosenGesturesEmpty"  @click="removeLastGesture">
           Undo <i class="fa-solid fa-rotate-left"></i>
         </button>
       </div>
-      <button type="button" class="btn btn-lg btn-dark" :class="{disabled: chosenGesturesEmpty}" @click="changeView">
+      <button type="button" class="btn btn-lg btn-dark" style="pointer-events: auto;" :class="{disabled: chosenGesturesEmpty}" @click="changeView">
         <span>Create Sequence ({{chosenGesturesLength}})</span>
       </button>
     </div>

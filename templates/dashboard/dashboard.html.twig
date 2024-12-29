@@ -5,6 +5,6 @@
 {% block body %}
     <div id="main-app">
         {{ parent() }}
-        <dashboard></dashboard>
+        <dashboard :categories="{{ categories|json_encode }}"></dashboard>
     </div>
 {% endblock %}

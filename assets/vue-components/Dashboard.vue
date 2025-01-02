@@ -20,8 +20,6 @@ export default {
       this.view = view;
     },
     updateChosenGestures(newGestures) {
-      console.log('update dash')
-      console.log(newGestures)
       this.chosenGestures = newGestures;
     },
   },
@@ -44,7 +42,7 @@ export default {
       </div>
       <div class="mx-4">
         <p class="word-space fw-normal pt-3 m-0">
-          To translate PJM to text start adding gestures.
+          Aby przetłumaczyć PJM na tekst, zacznij dodawać gesty.
         </p>
         <category :categories="categories" :chosenGestures="chosenGestures" @change-view="handleChangeView" @update-chosenGestures="updateChosenGestures"></category>
       </div>

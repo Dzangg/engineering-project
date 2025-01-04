@@ -32,7 +32,7 @@ class AddCategoriesCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $dataPath = "./assets/gesturesData/";
+        $dataPath = "./assets/gestureLoader/";
         $fileName = $dataPath . $input->getArgument('fileName');
         if (!file_exists($fileName)) {
             $output->writeln("<error>File not found: $fileName</error>");

@@ -14,24 +14,18 @@ class Category
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
     #[ORM\Column(length: 255)]
     private ?string $name = null;
-
-    /**
-     * @var Collection<int, Gesture>
-     */
-    #[ORM\OneToMany(targetEntity: Gesture::class, mappedBy: 'category')]
-    private Collection $gestures;
-
-    public function __construct()
-    {
-        $this->gestures = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function setId(?int $id): Category
+    {
+        $this->id = $id;
+        return $this;
     }
 
     public function getName(): ?string
@@ -39,38 +33,42 @@ class Category
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setName(?string $name): Category
     {
         $this->name = $name;
-
         return $this;
     }
 
     /**
-     * @return Collection<int, Gesture>
+     * @var Collection<int, Gesture>
      */
+    #[ORM\ManyToMany(targetEntity: Gesture::class, inversedBy: 'categories')]
+    private Collection $gestures;
+
+    public function __construct()
+    {
+        $this->gestures = new ArrayCollection();
+    }
+
     public function getGestures(): Collection
     {
         return $this->gestures;
     }
 
-    public function addGesture(Gesture $gesture): static
+    public function addGesture(Gesture $gesture): self
     {
         if (!$this->gestures->contains($gesture)) {
             $this->gestures->add($gesture);
-            $gesture->setCategory($this);
+            $gesture->addCategory($this);
         }
 
         return $this;
     }
 
-    public function removeGesture(Gesture $gesture): static
+    public function removeGesture(Gesture $gesture): self
     {
         if ($this->gestures->removeElement($gesture)) {
-            // set the owning side to null (unless already changed)
-            if ($gesture->getCategory() === $this) {
-                $gesture->setCategory(null);
-            }
+            $gesture->removeCategory($this);
         }
 
         return $this;

@@ -33,7 +33,7 @@ class AddGesturesCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $dataPath = "./assets/gesturesData/";
+        $dataPath = "./assets/gestureLoader/";
         $fileName = $dataPath . $input->getArgument('fileName');
         if (!file_exists($fileName)) {
             $output->writeln("<error>File not found: $fileName</error>");
@@ -50,23 +50,28 @@ class AddGesturesCommand extends Command
             $gesture = $this->entityManager->getRepository(Gesture::class)->findOneBy(['label' => $item['label']]);
 
             if (!$gesture) {
-                $category = $this->entityManager->getRepository(Category::class)->findOneBy(['name' => $item['category']]);
+                $gesture = new Gesture();
+                $gesture->setLabel($item['label']);
+                $gesture->setVideoPath($item['videoPath']);
 
-                if (!$category) {
-                    $output->writeln("<error>Category not found: {$item['category']}</error>");
+                if (!isset($item['categories']) || !is_array($item['categories'])) {
+                    $output->writeln("<error>Gesture '{$item['label']}' does not have valid categories specified.</error>");
                     continue;
                 }
 
-                // Dynamically generate the video path
-                $videoPath = './assets/gestureVideos/' . $item['category'] . '/' . $item['label'] . '.mp4';
+                foreach ($item['categories'] as $categoryName) {
+                    $category = $this->entityManager->getRepository(Category::class)->findOneBy(['name' => $categoryName]);
 
-                $gesture = new Gesture();
-                $gesture->setLabel($item['label']);
-                $gesture->setVideoPath($videoPath);
-                $gesture->setCategory($category); // Set the ManyToOne relation
+                    if (!$category) {
+                        $output->writeln("<error>Category not found: $categoryName</error>");
+                        continue;
+                    }
+
+                    $gesture->addCategory($category); // Add category to the ManyToMany relation
+                }
 
                 $this->entityManager->persist($gesture);
-                $output->writeln("Added gesture: {$item['label']} under category: {$item['category']}, video path: $videoPath");
+                $output->writeln("Added gesture: {$item['label']} with categories: " . implode(', ', $item['categories']));
             } else {
                 $output->writeln("Gesture already exists: {$item['label']}");
             }

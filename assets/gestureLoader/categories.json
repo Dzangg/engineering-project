@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Przed ciałem"
+  },
+  {
+    "id": 2,
+    "name": "Przed twarzą"
+  },
+  {
+    "id": 3,
+    "name": "Jedna ręka"
+  },
+  {
+    "id": 4,
+    "name": "Dwie ręce"
+  },
+  {
+    "id": 5,
+    "name": "Twarz"
+  },
+  {
+    "id": 6,
+    "name": "Brzuch"
+  },
+  {
+    "id": 7,
+    "name": "Alfabet"
+  },
+  {
+    "id": 8,
+    "name": "Cyfry"
+  }
+]

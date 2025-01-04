@@ -1,0 +1,500 @@
+[
+  {
+    "id": 1,
+    "label": "0",
+    "categories": ["Cyfry"],
+    "videoPath": "./assets/gestureVideos/numbers/0.mov"
+  },
+  {
+    "id": 2,
+    "label": "1",
+    "categories": ["Cyfry"],
+    "videoPath": "./assets/gestureVideos/numbers/1.mov"
+  },
+  {
+    "id": 3,
+    "label": "2",
+    "categories": ["Cyfry"],
+    "videoPath": "./assets/gestureVideos/numbers/2.mov"
+  },
+  {
+    "id": 4,
+    "label": "3",
+    "categories": ["Cyfry"],
+    "videoPath": "./assets/gestureVideos/numbers/3.mov"
+  },
+  {
+    "id": 5,
+    "label": "4",
+    "categories": ["Cyfry"],
+    "videoPath": "./assets/gestureVideos/numbers/4.mov"
+  },
+  {
+    "id": 6,
+    "label": "5",
+    "categories": ["Cyfry"],
+    "videoPath": "./assets/gestureVideos/numbers/5.mov"
+  },
+  {
+    "id": 7,
+    "label": "6",
+    "categories": ["Cyfry"],
+    "videoPath": "./assets/gestureVideos/numbers/6.mov"
+  },
+  {
+    "id": 8,
+    "label": "7",
+    "categories": ["Cyfry"],
+    "videoPath": "./assets/gestureVideos/numbers/7.mov"
+  },
+  {
+    "id": 9,
+    "label": "8",
+    "categories": ["Cyfry"],
+    "videoPath": "./assets/gestureVideos/numbers/8.mov"
+  },
+  {
+    "id": 10,
+    "label": "9",
+    "categories": ["Cyfry"],
+    "videoPath": "./assets/gestureVideos/numbers/9.mov"
+  },
+  {
+    "id": 11,
+    "label": "10",
+    "categories": ["Cyfry"],
+    "videoPath": "./assets/gestureVideos/numbers/10.mov"
+  },
+  {
+    "id": 12,
+    "label": "A",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/A.mov"
+  },
+  {
+    "id": 13,
+    "label": "Ą",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/A_.mov"
+  },
+  {
+    "id": 14,
+    "label": "B",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/B.mov"
+  },
+  {
+    "id": 15,
+    "label": "C",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/C.mov"
+  },
+  {
+    "id": 16,
+    "label": "CH",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/CH.mov"
+  },
+  {
+    "id": 17,
+    "label": "CZ",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/CZ.mov"
+  },
+  {
+    "id": 18,
+    "label": "Ć",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/C_.mov"
+  },
+  {
+    "id": 19,
+    "label": "D",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/D.mov"
+  },
+  {
+    "id": 20,
+    "label": "E",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/E.mov"
+  },
+  {
+    "id": 21,
+    "label": "Ę",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/E_.mov"
+  },
+  {
+    "id": 22,
+    "label": "F",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/F.mov"
+  },
+  {
+    "id": 23,
+    "label": "G",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/G.mov"
+  },
+  {
+    "id": 24,
+    "label": "H",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/H.mov"
+  },
+  {
+    "id": 25,
+    "label": "I",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/I.mov"
+  },
+  {
+    "id": 26,
+    "label": "J",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/J.mov"
+  },
+  {
+    "id": 27,
+    "label": "K",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/K.mov"
+  },
+  {
+    "id": 28,
+    "label": "L",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/L.mov"
+  },
+  {
+    "id": 29,
+    "label": "Ł",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/L_.mov"
+  },
+  {
+    "id": 30,
+    "label": "M",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/M.mov"
+  },
+  {
+    "id": 31,
+    "label": "N",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/N.mov"
+  },
+  {
+    "id": 32,
+    "label": "Ń",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/N_.mov"
+  },
+  {
+    "id": 33,
+    "label": "O",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/O.mov"
+  },
+  {
+    "id": 34,
+    "label": "Ó",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/O_.mov"
+  },
+  {
+    "id": 35,
+    "label": "P",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/P.mov"
+  },
+  {
+    "id": 36,
+    "label": "Q",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/Q.mov"
+  },
+  {
+    "id": 37,
+    "label": "R",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/R.mov"
+  },
+  {
+    "id": 38,
+    "label": "RZ",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/RZ.mov"
+  },
+  {
+    "id": 39,
+    "label": "S",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/S.mov"
+  },
+  {
+    "id": 40,
+    "label": "SZ",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/SZ.mov"
+  },
+  {
+    "id": 41,
+    "label": "Ś",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/S_.mov"
+  },
+  {
+    "id": 42,
+    "label": "T",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/T.mov"
+  },
+  {
+    "id": 43,
+    "label": "U",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/U.mov"
+  },
+  {
+    "id": 44,
+    "label": "V",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/V.mov"
+  },
+  {
+    "id": 45,
+    "label": "W",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/W.mov"
+  },
+  {
+    "id": 46,
+    "label": "X",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/X.mov"
+  },
+  {
+    "id": 47,
+    "label": "Y",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/Y.mov"
+  },
+  {
+    "id": 48,
+    "label": "Z",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/Z.mov"
+  },
+  {
+    "id": 49,
+    "label": "Ź",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/Z_.mov"
+  },
+  {
+    "id": 50,
+    "label": "Ż",
+    "categories": ["Alfabet"],
+    "videoPath": "./assets/gestureVideos/alphabet/Z__.mov"
+  },
+  {
+    "id": 51,
+    "label": "apteczka",
+    "categories": ["Przed ciałem", "Dwie ręce"],
+    "videoPath": "./assets/gestureVideos/common/apteczka.mov"
+  },
+  {
+    "id": 52,
+    "label": "brat",
+    "categories": ["Przed ciałem", "Przed twarzą", "Twarz", "Dwie ręce"],
+    "videoPath": "./assets/gestureVideos/common/brat.mov"
+  },
+  {
+    "id": 53,
+    "label": "być",
+    "categories": ["Przed ciałem", "Dwie ręce"],
+    "videoPath": "./assets/gestureVideos/common/byc.mov"
+  },
+  {
+    "id": 54,
+    "label": "czekać",
+    "categories": ["Przed ciałem", "Brzuch", "Dwie ręce"],
+    "videoPath": "./assets/gestureVideos/common/czekac.mov"
+  },
+  {
+    "id": 55,
+    "label": "do widzenia",
+    "categories": ["Przed ciałem", "Przed twarzą", "Dwie ręce"],
+    "videoPath": "./assets/gestureVideos/common/do widzenia.mov"
+  },
+  {
+    "id": 56,
+    "label": "dom",
+    "categories": ["Przed ciałem", "Dwie ręce"],
+    "videoPath": "./assets/gestureVideos/common/dom.mov"
+  },
+  {
+    "id": 57,
+    "label": "dziękuje",
+    "categories": ["Przed twarzą", "Twarz", "Dwie ręce"],
+    "videoPath": "./assets/gestureVideos/common/dziekuje.mov"
+  },
+  {
+    "id": 58,
+    "label": "dzień dobry",
+    "categories": ["Przed ciałem", "Przed twarzą", "Twarz", "Dwie ręce"],
+    "videoPath": "./assets/gestureVideos/common/dzien dobry.mov"
+  },
+  {
+    "id": 59,
+    "label": "dziś",
+    "categories": ["Przed ciałem", "Dwie ręce"],
+    "videoPath": "./assets/gestureVideos/common/dzis.mov"
+  },
+  {
+    "id": 60,
+    "label": "ja",
+    "categories": ["Przed ciałem", "Dwie ręce"],
+    "videoPath": "./assets/gestureVideos/common/ja.mov"
+  },
+  {
+    "id": 61,
+    "label": "jechać",
+    "categories": ["Przed twarzą", "Dwie ręce"],
+    "videoPath": "./assets/gestureVideos/common/jechac.mov"
+  },
+  {
+    "id": 62,
+    "label": "jest",
+    "categories": ["Przed ciałem", "Dwie ręce"],
+    "videoPath": "./assets/gestureVideos/common/jest.mov"
+  },
+  {
+    "id": 63,
+    "label": "jutro",
+    "categories": ["Przed twarzą", "Twarz", "Jedna ręka"],
+    "videoPath": "./assets/gestureVideos/common/jutro.mov"
+  },
+  {
+    "id": 64,
+    "label": "kamera",
+    "categories": ["Przed ciałem", "Dwie ręce"],
+    "videoPath": "./assets/gestureVideos/common/kamera.mov"
+  },
+  {
+    "id": 65,
+    "label": "miasto",
+    "categories": ["Przed ciałem", "Dwie ręce"],
+    "videoPath": "./assets/gestureVideos/common/miasto.mov"
+  },
+  {
+    "id": 66,
+    "label": "mieć",
+    "categories": ["Przed ciałem", "Jedna ręka"],
+    "videoPath": "./assets/gestureVideos/common/miec.mov"
+  },
+  {
+    "id": 67,
+    "label": "mieszkać",
+    "categories": ["Przed twarzą", "Twarz", "Jedna ręka"],
+    "videoPath": "./assets/gestureVideos/common/mieszkac.mov"
+  },
+  {
+    "id": 68,
+    "label": "nazywać się",
+    "categories": ["Przed twarzą", "Twarz", "Jedna ręka"],
+    "videoPath": "./assets/gestureVideos/common/nazywac sie.mov"
+  },
+  {
+    "id": 69,
+    "label": "mieć",
+    "categories": ["Przed twarzą", "Jedna ręka"],
+    "videoPath": "./assets/gestureVideos/common/nie miec.mov"
+  },
+  {
+    "id": 70,
+    "label": "on",
+    "categories": ["Twarz", "Jedna ręka"],
+    "videoPath": "./assets/gestureVideos/common/on.mov"
+  },
+  {
+    "id": 71,
+    "label": "ona",
+    "categories": ["Twarz", "Jedna ręka"],
+    "videoPath": "./assets/gestureVideos/common/ona.mov"
+  },
+  {
+    "id": 72,
+    "label": "pan",
+    "categories": ["Twarz", "Brzuch", "Dwie ręce"],
+    "videoPath": "./assets/gestureVideos/common/pan.mov"
+  },
+  {
+    "id": 73,
+    "label": "pani",
+    "categories": ["Twarz", "Brzuch", "Dwie ręce"],
+    "videoPath": "./assets/gestureVideos/common/pani.mov"
+  },
+  {
+    "id": 74,
+    "label": "pociąg",
+    "categories": ["Przed ciałem", "Jedna ręka"],
+    "videoPath": "./assets/gestureVideos/common/pociag.mov"
+  },
+  {
+    "id": 75,
+    "label": "proszę",
+    "categories": ["Przed ciałem", "Dwie ręce"],
+    "videoPath": "./assets/gestureVideos/common/prosze.mov"
+  },
+  {
+    "id": 76,
+    "label": "przepraszam",
+    "categories": ["Przed ciałem", "Dwie ręce"],
+    "videoPath": "./assets/gestureVideos/common/przepraszam.mov"
+  },
+  {
+    "id": 77,
+    "label": "samochód",
+    "categories": ["Przed ciałem", "Dwie ręce"],
+    "videoPath": "./assets/gestureVideos/common/samochod.mov"
+  },
+  {
+    "id": 78,
+    "label": "siostra",
+    "categories": ["Przed ciałem", "Twarz", "Dwie ręce"],
+    "videoPath": "./assets/gestureVideos/common/siostra.mov"
+  },
+  {
+    "id": 79,
+    "label": "Szczecin",
+    "categories": ["Przed ciałem", "Dwie ręce"],
+    "videoPath": "./assets/gestureVideos/common/Szczecin.mov"
+  },
+  {
+    "id": 80,
+    "label": "szpital",
+    "categories": ["Przed ciałem", "Przed twarzą", "Twarz", "Dwie ręce"],
+    "videoPath": "./assets/gestureVideos/common/szpital.mov"
+  },
+  {
+    "id": 81,
+    "label": "tramwaj",
+    "categories": ["Przed ciałem", "Jedna ręka"],
+    "videoPath": "./assets/gestureVideos/common/tramwaj.mov"
+  },
+  {
+    "id": 82,
+    "label": "ty",
+    "categories": ["Przed ciałem", "Jedna ręka"],
+    "videoPath": "./assets/gestureVideos/common/ty.mov"
+  },
+  {
+    "id": 83,
+    "label": "wtorek",
+    "categories": ["Przed ciałem", "Jedna ręka"],
+    "videoPath": "./assets/gestureVideos/common/wtorek.mov"
+  }
+]

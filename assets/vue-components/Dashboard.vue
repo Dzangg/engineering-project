@@ -41,7 +41,7 @@ export default {
         <navbar :categories="categories" :menu="true"></navbar>
       </div>
       <div class="mx-4">
-        <p class="word-space fw-normal pt-3 m-0">
+        <p class="word-space fw-normal pt-3 ml-0 mr-0">
           Aby przetłumaczyć PJM na tekst, zacznij dodawać gesty.
         </p>
         <category :categories="categories" :chosenGestures="chosenGestures" @change-view="handleChangeView" @update-chosenGestures="updateChosenGestures"></category>

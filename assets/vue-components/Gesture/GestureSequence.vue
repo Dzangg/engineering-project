@@ -3,7 +3,7 @@ import draggable from "vuedraggable";
 import axios from "axios";
 
 export default {
-  name: "Grid",
+  name: "GestureSequence",
   components: {draggable},
   props: {
     chosenGestures: Array
@@ -82,7 +82,7 @@ export default {
     }
   },
   mounted() {
-    this.sequenceChosenGestures = [ ...this.chosenGestures ];
+    this.sequenceChosenGestures = this.chosenGestures.map((item, index) => ({ ...item, uniqueId: index }));
   }
 }
 </script>
@@ -101,7 +101,7 @@ export default {
             v-model="sequenceChosenGestures"
             @start="drag=true"
             @end="drag=false"
-            item-key="id"
+            item-key="uniqueId"
             class="d-flex flex-row flex-wrap row-cols-3"
             :disabled="!editMode"
         >
@@ -143,7 +143,7 @@ export default {
       </div>
 
       <div class="d-flex flex-column justify-content-between align-items-center gap-3">
-        <a class="btn btn-lg btn-dark" :class="{ disabled: editMode || gesturesEmpty }" data-bs-toggle="offcanvas" href="#offcanvasTranslator" aria-controls="offcanvasTranslator" @click="getGestureValues">
+        <a class="btn btn-lg btn-dark" :class="{ disabled: editMode || gesturesEmpty }" data-bs-toggle="offcanvas" href="#offcanvasTranslator" aria-controls="offcanvasTranslator">
           Otwórz tłumacz <i class="fa-solid fa-hands-asl-interpreting"></i>
         </a>
         <button type="button" class="btn btn-dark" @click="changeView">
@@ -160,11 +160,11 @@ export default {
       <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body d-flex flex-column justify-content-start align-items-center">
-      <div class="d-flex flex-column justify-content-center align-items-center gap-4  w-100">
+      <div class="d-flex flex-column justify-content-center align-items-center gap-4 w-100">
         <div>
-          <label for="exampleSelect" class="form-label">Język tłumaczenia</label>
-          <select id="exampleSelect" class="form-select" aria-label="Default select example" v-model="translationLanguage">
-            <option selected value="pl">Polski</option>
+          <label for="language-select" class="form-label">Język tłumaczenia</label>
+          <select id="language-select" class="form-select" aria-label="Wybór języka tłumaczenia" v-model="translationLanguage">
+            <option value="pl">Polski</option>
             <option value="en">Angielski</option>
             <option value="es">Hiszpański</option>
             <option value="fr">Francuski</option>
@@ -186,15 +186,15 @@ export default {
             <option value="sv">Szwedzki</option>
           </select>
         </div>
-        <button class="btn btn-dark" :class="{ disabled: this.gesturesEmpty}" @click="fetchTranslation">
-          Przetłumacz {{this.gestureCount}} {{ this.gestureCount > 1 ? 'gesty' : 'gest' }}
+        <button class="btn btn-dark" :disabled="gesturesEmpty" @click="fetchTranslation">
+          Przetłumacz {{ gestureCount }} {{ gestureCount > 1 ? 'gesty' : 'gest' }}
         </button>
         <div class="text-center">
           <h4>Przed tłumaczeniem</h4>
-          <p v-if="!this.gesturesEmpty" ref="gestureParagraph" class="text-break mb-0" style="overflow-wrap: break-word; white-space: normal;">
-            <span v-for="(label, index) in gestureLabels">
-              {{label + ', '}}
-            </span>
+          <p v-if="!gesturesEmpty" ref="gestureParagraph" class="text-break mb-0" style="overflow-wrap: break-word; white-space: normal;">
+          <span v-for="(label, index) in gestureLabels" :key="index">
+            {{ label }}<span v-if="index < gestureLabels.length - 1">, </span>
+          </span>
           </p>
           <p v-else>Nie wybrano gestów</p>
           <h4 class="mt-4">Po tłumaczeniu</h4>
@@ -209,7 +209,7 @@ export default {
         <textarea v-else class="form-control w-100" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100%" readonly v-model="translatedText"></textarea>
       </div>
       <div class="d-flex justify-content-center align-items-center w-100" style="height: 200px">
-        <button type="button" class="btn btn-dark" :disabled="!this.gestureTranslated || isLoading" @click="copyText">Skopiuj tekst</button>
+        <button type="button" class="btn btn-dark" :disabled="!gestureTranslated || isLoading" @click="copyText">Skopiuj tekst</button>
       </div>
     </div>
     <div v-if="textCopied" class="alert alert-primary fixed-bottom" role="alert" style="bottom: 15%">

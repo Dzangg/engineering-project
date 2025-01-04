@@ -18,12 +18,12 @@ class DashboardController extends AbstractController
             return [
                 'id' => $category->getId(),
                 'name' => $category->getName(),
-                'gestures' => array_map(function($gesture) {
+                'gestures' => $category->getGestures()->map(function($gesture) {
                     return [
                         'id' => $gesture->getId(),
                         'label' => $gesture->getLabel(),
                     ];
-                }, $category->getGestures()->toArray())
+                })->toArray()
             ];
         }, $categories);
 

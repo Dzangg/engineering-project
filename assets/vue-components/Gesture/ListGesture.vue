@@ -47,9 +47,9 @@ export default {
         gesture.classList.add('pulse-effect');
       }, 1);
     },
-    addGesture(e, index) {
+    addGesture(e, newGesture) {
 
-      this.$emit('add-gesture', this.gestures[index]);
+      this.$emit('add-gesture', newGesture);
 
       const gesture = e.target;
 
@@ -74,7 +74,7 @@ export default {
 </script>
 
 <template>
-  <div class="my-4 position-relative" style="width: 98%">
+  <div class="my-4 position-relative" style="max-width: 98%; width: fit-content">
     <!-- Left arrow -->
     <Transition>
       <div
@@ -92,15 +92,15 @@ export default {
         id="list-gesture-container"
         class="row flex-nowrap scrollbar-off"
         ref="scrollContainer"
-        style="overflow-x: auto; scroll-behavior: smooth; width: fit-content"
+        style="overflow-x: auto; scroll-behavior: smooth;"
     >
-      <div v-for="(gesture, index) in gestures" class="col pt-2">
+      <div v-for="(gesture, index) in gestures" class="col pt-2 d-flex flex-column">
         <div class="card d-inline-block" style="width: 8rem; height: 8rem;" ref="imageContainer" @click="toggleAnimation">
           <gesture :gesture="gesture"></gesture>
         </div>
-        <div class="text-center d-flex flex-column align-items-center">
+        <div class="text-center d-flex flex-column justify-content-center align-items-center">
           <p class="my-1">{{ gesture.label }}</p>
-          <div class="add-icon d-flex justify-content-center align-items-center" @click="addGesture($event, index)">
+          <div class="add-icon d-flex justify-content-center align-items-center" @click="addGesture($event, gesture)">
             <i class="fa-solid fa-plus fa-lg"></i>
           </div>
         </div>

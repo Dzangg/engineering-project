@@ -158,7 +158,7 @@ export default {
         <div>
           <label for="language-select" class="form-label">Język tłumaczenia</label>
           <select id="language-select" class="form-select" aria-label="Wybór języka tłumaczenia" v-model="translationLanguage">
-            <option value="Polski">Polski</option>
+            <option selected value="Polski">Polski</option>
             <option value="Angielski">Angielski</option>
             <option value="Hiszpański">Hiszpański</option>
             <option value="Francuski">Francuski</option>

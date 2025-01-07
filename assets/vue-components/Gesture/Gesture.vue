@@ -3,19 +3,18 @@ export default {
   name: "Gesture",
   props: {
     gesture: Object,
-    play: Boolean,
   },
   data() {
     return {
+      observer: null,
+      isVisible: false,
       isPlaying: false,
     };
   },
   methods: {
     toggleAnimation(e) {
       const gesture = e.target;
-
       gesture.classList.remove("pulse-effect");
-      
       setTimeout(() => {
         gesture.classList.add("pulse-effect");
       }, 1);
@@ -29,7 +28,6 @@ export default {
       }
 
       if (value && !this.isPlaying) {
-        // Play the video if not already playing
         video
             .play()
             .then(() => {
@@ -39,19 +37,34 @@ export default {
               console.error("Error playing video:", err);
             });
       } else if (!value && this.isPlaying) {
-        // Pause the video if not already paused
         video.pause();
         this.isPlaying = false;
       }
     },
   },
   mounted() {
-    this.togglePlay(this.play);
+    const videoElement = this.$refs.video;
+
+    if (videoElement) {
+      this.observer = new IntersectionObserver(
+          ([entry]) => {
+            this.isVisible = entry.isIntersecting;
+          },
+          {threshold: 0.7 }
+      );
+
+      this.observer.observe(videoElement);
+    }
   },
   watch: {
-    play(newVal) {
+    isVisible(newVal) {
       this.togglePlay(newVal);
     },
+  },
+  beforeUnmount() {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
   },
 };
 </script>

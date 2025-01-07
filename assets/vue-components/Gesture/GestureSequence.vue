@@ -17,6 +17,7 @@ export default {
       translationLanguage: 'pl',
       translatedText: null,
       textCopied: false,
+      iconColor: "#000",
     }
   },
   watch: {
@@ -33,6 +34,7 @@ export default {
     },
     handleEditMode() {
       this.editMode = !this.editMode;
+      this.iconColor = this.iconColor === "#000" ? "#424649" : "#000";
     },
     removeGesture(index) {
       this.sequenceChosenGestures.splice(index, 1);
@@ -45,7 +47,6 @@ export default {
           gestures: this.gestureLabels,
         });
         this.translatedText = response.data.translatedText;
-        console.log(response.data)
       } catch (err) {
         this.error = err.message;
       } finally {
@@ -59,7 +60,6 @@ export default {
 
               setTimeout(() => {
                 this.textCopied = false;
-                console.log(this.translatedText)
               }, 3000);
             })
             .catch(err => {
@@ -111,8 +111,8 @@ export default {
                 <div v-if="editMode" @click="removeGesture(index)">
                   <i class="fa-solid fa-circle-minus fa-xl position-absolute top-0 start-0 translate-middle-y remove-icon"></i>
                 </div>
-                <div class="card image-box" style="z-index: -1">
-      <!--      video      -->
+                <div class="card image-box d-flex justify-content-center align-items-center" style="z-index: -1" :style="{color: iconColor}">
+                  <i class="fa-solid fa-hands-asl-interpreting fa-xl fs-1"></i>
                 </div>
                 <div style="height: 20px; width: 100%" class="text-center text-wrap text-break lh-sm fw-normal poppins-light my-2">
                   <p>{{element.label}}</p>
@@ -133,12 +133,6 @@ export default {
       <div class="d-flex flex-column justify-content-center align-items-center gap-3">
         <button class="btn btn-dark p-2" @click="handleEditMode">
           {{ !editMode ? 'Zmień kolejność' : 'Ukońćz' }}
-        </button>
-        <p class="m-0" :class="{ 'text-secondary': editMode }">
-          Lub
-        </p>
-        <button class="btn btn-outline-dark p-2" :disabled="editMode">
-          Automatycznie zmień kolejność gestów
         </button>
       </div>
 
@@ -164,26 +158,26 @@ export default {
         <div>
           <label for="language-select" class="form-label">Język tłumaczenia</label>
           <select id="language-select" class="form-select" aria-label="Wybór języka tłumaczenia" v-model="translationLanguage">
-            <option value="pl">Polski</option>
-            <option value="en">Angielski</option>
-            <option value="es">Hiszpański</option>
-            <option value="fr">Francuski</option>
-            <option value="de">Niemiecki</option>
-            <option value="it">Włoski</option>
-            <option value="pt">Portugalski</option>
-            <option value="ru">Rosyjski</option>
-            <option value="zh">Chiński</option>
-            <option value="ja">Japoński</option>
-            <option value="ko">Koreański</option>
-            <option value="ar">Arabski</option>
-            <option value="hi">Hindi</option>
-            <option value="bn">Bengalski</option>
-            <option value="id">Indonezyjski</option>
-            <option value="vi">Wietnamski</option>
-            <option value="th">Tajski</option>
-            <option value="tr">Turecki</option>
-            <option value="nl">Holenderski</option>
-            <option value="sv">Szwedzki</option>
+            <option value="Polski">Polski</option>
+            <option value="Angielski">Angielski</option>
+            <option value="Hiszpański">Hiszpański</option>
+            <option value="Francuski">Francuski</option>
+            <option value="Niemiecki">Niemiecki</option>
+            <option value="Włoski">Włoski</option>
+            <option value="Portugalski">Portugalski</option>
+            <option value="Rosyjski">Rosyjski</option>
+            <option value="Chiński">Chiński</option>
+            <option value="Japoński">Japoński</option>
+            <option value="Koreański">Koreański</option>
+            <option value="Arabski">Arabski</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Bengalski">Bengalski</option>
+            <option value="Indonezyjski">Indonezyjski</option>
+            <option value="Wietnamski">Wietnamski</option>
+            <option value="Tajski">Tajski</option>
+            <option value="Turecki">Turecki</option>
+            <option value="Holenderski">Holenderski</option>
+            <option value="Szwedzki">Szwedzki</option>
           </select>
         </div>
         <button class="btn btn-dark" :disabled="gesturesEmpty" @click="fetchTranslation">

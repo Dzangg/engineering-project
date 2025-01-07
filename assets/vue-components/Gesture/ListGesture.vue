@@ -17,8 +17,6 @@ export default {
       showRightArrow: false,
       imageContainerHeight: 226,
       arrowOffset: 0,
-      isVisible: false,
-      observer: null,
     };
   },
   methods: {
@@ -53,35 +51,14 @@ export default {
         gesture.classList.add('pulse-effect');
       }, 1);
     },
-    changeVisibility() {
-      const targetDiv = this.$refs.llistgesture;
-      if (targetDiv && this.observer) {
-        this.observer.observe(targetDiv);
-      }
-    }
   },
   mounted() {
-    this.observer = new IntersectionObserver(
-        ([entry]) => {
-          this.isVisible = entry.isIntersecting;
-        },
-        { threshold: 1 }
-    );
-
-    this.changeVisibility();
-
     this.changeArrowsVisibility();
     this.$refs.scrollContainer.addEventListener("scroll", this.changeArrowsVisibility);
     this.arrowOffset = this.imageContainerHeight / 2;
 
-    window.addEventListener('scroll', this.changeVisibility);
   },
   beforeDestroy() {
-    if (this.observer) {
-      this.observer.disconnect();
-    }
-
-    window.removeEventListener('scroll', this.changeVisibility);
     this.$refs.scrollContainer?.removeEventListener("scroll", this.changeArrowsVisibility);
   },
 };
@@ -109,7 +86,7 @@ export default {
         style="overflow-x: auto; scroll-behavior: smooth;"
     >
       <div v-for="(gesture, index) in gestures" class="col pt-2 d-flex flex-column">
-          <gesture :gesture="gesture" :play="isVisible"></gesture>
+          <gesture :gesture="gesture" ></gesture>
         <div class="text-center d-flex flex-column justify-content-center align-items-center">
           <p class="my-1">{{ gesture.label }}</p>
           <div class="add-icon d-flex justify-content-center align-items-center" @click="addGesture($event, gesture)">

@@ -56,7 +56,7 @@ export default {
     <div class="col m-0">
       <h3 class="my-0">{{category.name + ' (' + category.gestures.length + ') '}}</h3>
       <div>
-        <ListGesture @add-gesture="addChosenGesture" :gestures="category.gestures"/>
+          <ListGesture @add-gesture="addChosenGesture" :gestures="category.gestures"/>
       </div>
     </div>
   </div>

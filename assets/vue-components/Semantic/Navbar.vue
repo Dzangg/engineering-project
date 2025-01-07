@@ -1,11 +1,7 @@
 <script>
-import Test from "../Gesture/Test.vue";
-
 export default {
-  components: {Test},
   props: {
     menu: false,
-    backButton: false,
     categories: Array,
   },
   data() {

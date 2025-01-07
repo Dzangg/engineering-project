@@ -55,7 +55,9 @@ export default {
   <div v-for="(category, index) in categories" class="row" :id="'category-' + category.name">
     <div class="col m-0">
       <h3 class="my-0">{{category.name + ' (' + category.gestures.length + ') '}}</h3>
-      <ListGesture @add-gesture="addChosenGesture" :gestures="category.gestures"/>
+      <div>
+        <ListGesture @add-gesture="addChosenGesture" :gestures="category.gestures"/>
+      </div>
     </div>
   </div>
   <div style="height: 200px">

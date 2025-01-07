@@ -15,7 +15,10 @@ export default {
     return {
       showLeftArrow: false,
       showRightArrow: false,
+      imageContainerHeight: 226,
       arrowOffset: 0,
+      isVisible: false,
+      observer: null,
     };
   },
   methods: {
@@ -36,17 +39,6 @@ export default {
         behavior: "smooth",
       });
     },
-    toggleAnimation(e) {
-      const gesture = e.target;
-
-      // Remove the animation class if it already exists
-      gesture.classList.remove('pulse-effect');
-
-      // Use a timeout to allow re-adding the animation class
-      setTimeout(() => {
-        gesture.classList.add('pulse-effect');
-      }, 1);
-    },
     addGesture(e, newGesture) {
 
       this.$emit('add-gesture', newGesture);
@@ -60,21 +52,43 @@ export default {
       setTimeout(() => {
         gesture.classList.add('pulse-effect');
       }, 1);
+    },
+    changeVisibility() {
+      const targetDiv = this.$refs.llistgesture;
+      if (targetDiv && this.observer) {
+        this.observer.observe(targetDiv);
+      }
     }
   },
   mounted() {
+    this.observer = new IntersectionObserver(
+        ([entry]) => {
+          this.isVisible = entry.isIntersecting;
+        },
+        { threshold: 1 }
+    );
+
+    this.changeVisibility();
+
     this.changeArrowsVisibility();
     this.$refs.scrollContainer.addEventListener("scroll", this.changeArrowsVisibility);
-    this.arrowOffset = (this.$refs.imageContainer[0].clientHeight / 2);
+    this.arrowOffset = this.imageContainerHeight / 2;
+
+    window.addEventListener('scroll', this.changeVisibility);
   },
-  beforeUnmount() {
-    this.$refs.scrollContainer.removeEventListener("scroll", this.changeArrowsVisibility);
+  beforeDestroy() {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+
+    window.removeEventListener('scroll', this.changeVisibility);
+    this.$refs.scrollContainer?.removeEventListener("scroll", this.changeArrowsVisibility);
   },
 };
 </script>
 
 <template>
-  <div class="my-4 position-relative" style="max-width: 98%; width: fit-content">
+  <div ref="llistgesture" class="my-4 position-relative listgesture" style="max-width: 98%; width: fit-content">
     <!-- Left arrow -->
     <Transition>
       <div
@@ -95,9 +109,7 @@ export default {
         style="overflow-x: auto; scroll-behavior: smooth;"
     >
       <div v-for="(gesture, index) in gestures" class="col pt-2 d-flex flex-column">
-        <div class="card d-inline-block" style="width: 8rem; height: 8rem;" ref="imageContainer" @click="toggleAnimation">
-          <gesture :gesture="gesture"></gesture>
-        </div>
+          <gesture :gesture="gesture" :play="isVisible"></gesture>
         <div class="text-center d-flex flex-column justify-content-center align-items-center">
           <p class="my-1">{{ gesture.label }}</p>
           <div class="add-icon d-flex justify-content-center align-items-center" @click="addGesture($event, gesture)">

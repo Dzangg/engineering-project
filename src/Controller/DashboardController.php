@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Gesture;
 use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,9 +20,11 @@ class DashboardController extends AbstractController
                 'id' => $category->getId(),
                 'name' => $category->getName(),
                 'gestures' => $category->getGestures()->map(function($gesture) {
+                    /** @var Gesture $gesture */
                     return [
                         'id' => $gesture->getId(),
                         'label' => $gesture->getLabel(),
+                        'videoPath' => $gesture->getVideoPath(),
                     ];
                 })->toArray()
             ];
